@@ -6,10 +6,6 @@ num_student = 25 # 生徒数
 num_teacher = 20 # 講師数
 num_subject = 5 # 教科数
 
-# ap = np.random.randint(0, 2, 3)
-# ap = ap.tolist()
-# ap
-
 # 各講師の教務可能科目情報を乱数で生成
 np_data_teacher = np.zeros((num_teacher, num_subject), dtype = int)
 for i in range(num_teacher):
