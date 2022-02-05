@@ -18,23 +18,6 @@ for i in range(num_teacher):
     np_data_teacher[i][k] = 1 # 講師iは科目kを教務可能とする
     j = j + 1
 
-# np_data_teacher = []
-
-# # 各講師の教務可能科目情報を乱数で生成
-# i = 0
-# while i < num_teacher:
-#   ap = np.random.randint(0, 2, num_subject)
-#   ap = ap.tolist()
-#   if(sum(ap) == 0):
-#     continue
-#   np_data_teacher.append(ap)
-#   i = i + 1
-
-# np_data_teacher = np.array(np_data_teacher)
-# np_data_teacher
-# # np_data_teacher = np.random.randint(0, 2, (num_teacher, num_subject))
-# # np_data_teacher
-
 np_data_teacher = np.array(np_data_teacher)
 
 # 各生徒の授業情報を乱数で生成
@@ -81,30 +64,6 @@ for i in range(num_teacher):
 common_constraint = sum([equal_to(sum_poly(len(not_list), lambda i: L[not_list[i][0], not_list[i][1]]), 0)]) # 教務可能科目を超える授業不可
 
 constraints = student_constraint + teacher_constraint + common_constraint
-
-# これはボツ
-######################################################################
-# num_needed_teacher = num_student / 2.0
-# num_actual_teacher = num_teacher
-
-# teacher_poly_list = []
-# for i in range(num_teacher):
-#   teacher_poly_list.append(sum_poly(num_student, lambda j: L[i, j]))
-
-# print(teacher_poly_list)
-
-# for i in range(num_teacher):
-#   if teacher_poly_list[i] == 0:
-#     num_actual_teacher = num_actual_teacher - 1
-
-# func_cost = num_actual_teacher / num_needed_teacher
-######################################################################
-
-# これもボツ
-######################################################################
-# f = 0.5 * (sum_poly(num_teacher, lambda i: sum_poly(num_student, lambda j: L[i, j]) + 1))
-# f
-######################################################################
 
 inv_num_teacher = 1 / num_teacher
 ave = inv_num_teacher * (sum_poly(num_teacher, lambda i: (sum_poly(num_student, lambda j: L[i, j])))) # 各行の和の平均
